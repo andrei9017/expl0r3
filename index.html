@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pentru tine ❤️</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #ffe6f0, #ffd6ec);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Inimi plutitoare */
+.heart {
+  position: absolute;
+  color: #ff4da6;
+  animation: floatUp linear infinite;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-10vh);
+    opacity: 1;
+  }
+}
+
+/* Card futurist */
+.card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.4);
+  text-align: center;
+  z-index: 2;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+  color: #ff3399;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+p {
+  color: #333;
+  margin-bottom: 12px;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.signature {
+  margin-top: 20px;
+  font-style: italic;
+  color: #cc0066;
+}
+
+/* Buton */
+.button {
+  margin-top: 10px;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 25px;
+  background: #ff4da6;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background: #ff1a8c;
+  box-shadow: 0 0 15px #ff66b3;
+}
+
+/* Continut ascuns */
+#content {
+  display: none;
+  animation: reveal 1.2s ease forwards;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Poze */
+.photos {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.photos img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255,105,180,0.4);
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Hey ❤️</h1>
+
+  <button class="button" id="openBtn" onclick="showContent()">Deschide</button>
+
+  <div id="content">
+    <p>
+      Am vrut să fac ceva simplu, doar pentru tine.
+    </p>
+
+    <p>
+      Îmi place foarte mult să petrec timp cu tine.
+    </p>
+
+    <p>
+      Îmi place cum ești.
+      Îmi place cum mă simt când sunt cu tine.
+      Și îmi place că pot să fiu eu.
+    </p>
+
+    <p>
+      Chiar contezi pentru mine mai mult decât crezi.
+    </p>
+
+    <div class="photos">
+      <img src="photo1.jpg" alt="idk">
+      <img src="photo2.jpg" alt="idk">
+      <img src="photo3.jpg" alt="lemons in their face watch em freeze up">
+    </div>
+
+    <p class="signature">
+      Happy Valentine’s Day 💗<br>
+      — Tudor
+    </p>
+  </div>
+</div>
+
+<script>
+function showContent() {
+  document.getElementById("content").style.display = "block";
+  document.getElementById("openBtn").style.display = "none";
+}
+
+/* Inimi random */
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+  heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 7000);
+}
+
+setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
